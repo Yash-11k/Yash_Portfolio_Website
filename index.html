@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash | Aspiring Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 5%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00ffff;
+        }
+
+        .nav-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ffff20, #ff00ff20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00ffff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: rgba(0, 255, 255, 0.15);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .glow-text {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0.5rem 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00ffff, #ff00ff, #00ff88);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        .college-name {
+            color: #00ffff;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .typing-container {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            min-height: 50px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background: #00ffff;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .stats-grid {
+            flex: 0.7;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #00ffff;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 18px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 255, 0.06);
+            border-color: rgba(0, 255, 255, 0.2);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: #bbb;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0.8rem 0;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-badge {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 255, 0.08);
+            border-radius: 50px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .skill-badge:hover {
+            border-color: #00ffff;
+        }
+
+        .github-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #00ffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .glow-text { font-size: 2rem; }
+            .nav-links { display: none; }
+            .hero { flex-direction: column; text-align: center; }
+        }
+
+        section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-badge {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 255, 255, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+<div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-sun"></i>
+</div>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">YASH<span style="color:#00ffff;">.AI</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#experience">Work</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-profile">
+            <img src="yashimage.png" alt="Yash" class="nav-photo" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="nav-placeholder" style="display: none;">YK</div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🎓 Aspiring Data Scientist • B.Tech CSE</div>
+                <div class="typing-container" id="typing-text"></div>
+                <div class="glow-text">
+                    <span class="gradient-text">Learning</span> from Data,<br>Building for Tomorrow
+                </div>
+                <p style="margin: 0.8rem 0; font-size: 0.95rem;">Data Science & Analytics Enthusiast | 3+ Internships | 8+ Projects</p>
+                <p class="college-name"><i class="fas fa-university"></i> Deenbandhu Chhoturam University of Science & Technology (DCRUST)</p>
+                <div style="display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap;">
+                    <a href="#projects" class="glass" style="padding: 0.7rem 1.5rem; text-decoration: none; color: #fff; font-size: 0.9rem;">Explore Projects →</a>
+                    <a href="mailto:yashkagra11@gmail.com" class="glass" style="padding: 0.7rem 1.5rem; text-decoration: none; color: #fff; font-size: 0.9rem;">Contact Me</a>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="stat1">0</div><div class="stat-label">GitHub Commits</div></div>
+                <div class="stat-card"><div class="stat-number" id="stat2">0</div><div class="stat-label">LeetCode Solved</div></div>
+                <div class="stat-card"><div class="stat-number" id="stat3">0</div><div class="stat-label">Projects Done</div></div>
+                <div class="stat-card"><div class="stat-number" id="stat4">0</div><div class="stat-label">PRs Merged</div></div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2 class="section-title gradient-text">📌 Internships</h2>
+            <div class="glass" style="padding: 1.2rem; margin: 0.8rem 0;">
+                <h3 style="font-size: 1.1rem;">📊 Data Analyst Intern @ ToLetGlobe (Startup)</h3>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Dec 2025 - Apr 2026 | Remote</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">• Cleaned 100+ rental records • Built performance trackers • Streamlined data workflows</p>
+            </div>
+            <div class="glass" style="padding: 1.2rem; margin: 0.8rem 0;">
+                <h3 style="font-size: 1.1rem;">📈 Data Analyst Intern @ Infotact Solutions</h3>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Jun 2025 - Aug 2025 | Remote</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">• Analyzed 10,000+ sales rows • Built Power BI dashboards • Customer segmentation</p>
+            </div>
+            <div class="glass" style="padding: 1.2rem; margin: 0.8rem 0;">
+                <h3 style="font-size: 1.1rem;">🐙 Open Source Contributor @ GitHub</h3>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Dec 2024 - Present</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">• 10+ PRs merged • Solved 5+ real-world issues • Global collaboration</p>
+            </div>
+        </section>
+
+        <!-- Projects - NOW 6 PROJECTS -->
+        <section id="projects">
+            <h2 class="section-title gradient-text">🚀 Projects (6)</h2>
+            <div class="project-grid">
+                
+                <!-- Project 1: ZenithMind AI -->
+                <div class="project-card">
+                    <div class="project-icon">🧠🤖</div>
+                    <div class="project-title">ZenithMind AI - Student Burnout Predictor</div>
+                    <div class="project-desc">Student Burnout Prediction on 1M+ rows. Random Forest & XGBoost with 71% accuracy. Deployed Streamlit app with real-time risk meter.</div>
+                    <div class="project-tech"><span class="tech-tag">XGBoost</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Python</span></div>
+                    <a href="https://zenithmind-ai-yash11k.streamlit.app/" class="project-link" id="Project Link">🔗 Live Project →</a>
+                </div>
+
+                <!-- Project 2: Route-Wise -->
+                <div class="project-card">
+                    <div class="project-icon">🚖📊</div>
+                    <div class="project-title">Route-Wise - Uber Trip Forecaster</div>
+                    <div class="project-desc">XGBoost-based distance forecasting with 82.1% accuracy. Feature engineering, IQR capping, deployed on Streamlit Cloud.</div>
+                    <div class="project-tech"><span class="tech-tag">XGBoost</span><span class="tech-tag">Pandas</span><span class="tech-tag">Streamlit</span></div>
+                    <a href="https://ubertripanalytics.streamlit.app/" class="project-link" id="Project-Link">🔗 Live Project →</a>
+                </div>
+
+                <!-- Project 3: Digital Payment Analytics -->
+                <div class="project-card">
+                    <div class="project-icon">💳📈</div>
+                    <div class="project-title">Digital Payment Analytics Dashboard</div>
+                    <div class="project-desc">650K+ transactions, $55M revenue analysis. Power BI with DAX measures, customer segmentation, real-time filters.</div>
+                    <div class="project-tech"><span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">SQL</span></div>
+                    <a href="https://github.com/Yash-11k/Digital-Payment-Analytics-Dashboard-Customer-Spending-Behaviour" class="project-link" id="Project-Link">🔗 Github  Dashboard →</a>
+                </div>
+
+                <!-- Project 4: Zepto SQL Analysis - NEW -->
+                <div class="project-card">
+                    <div class="project-icon">🛒📉</div>
+                    <div class="project-title">Zepto SQL Sales Analysis</div>
+                    <div class="project-desc">Quick commerce sales analysis using MySQL. Customer segmentation, order trends, peak hours identification using Window Functions & CTEs.</div>
+                    <div class="project-tech"><span class="tech-tag">MySQL</span><span class="tech-tag">Window Functions</span><span class="tech-tag">CTEs</span></div>
+                    <a href="https://github.com/Yash-11k/Zepto_SQL_Analysis-" class="project-link" id="Project-Link">🔗 GitHub →</a>
+                </div>
+
+                <!-- Project 5: Medical Insurance Cost Prediction - NEW -->
+                <div class="project-card">
+                    <div class="project-icon">🏥💰</div>
+                    <div class="project-title">Medical Insurance Cost Prediction</div>
+                    <div class="project-desc">Regression model to predict insurance costs. Linear Regression, Random Forest, XGBoost achieving 88% R² score. Streamlit deployment.</div>
+                    <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Streamlit</span></div>
+                    <a href="https://github.com/Yash-11k/Medical-Insurance-Cost-Prediction-ML-API" class="project-link" id="Project-Link">🔗 GitHub →</a>
+                </div>
+
+                <!-- Project 6: Diwali Sales EDA - NEW -->
+                <div class="project-card">
+                    <div class="project-icon">✨🛍️</div>
+                    <div class="project-title">Diwali Sales Analysis - EDA</div>
+                    <div class="project-desc">End-to-end EDA on 20,000+ transactions. Identified customer patterns across states, categories. Maharashtra & UP contributed 40% sales.</div>
+                    <div class="project-tech"><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Seaborn</span></div>
+                    <a href="https://github.com/Yash-11k/PYTHON-EDA-ANALYSIS-DIWALI-SALES-" class="project-link" id="Project-Link">🔗 GitHub →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Section -->
+        <section id="github">
+            <h2 class="section-title gradient-text">🐙 GitHub</h2>
+            <div class="github-section">
+                <i class="fab fa-github" style="font-size: 2.5rem; color: #00ffff;"></i>
+                <p style="margin: 0.8rem 0;">Active contributor • 10+ PRs merged • Learning in public</p>
+                <a href="https://github.com/Yash-11k" target="_blank" class="glass" style="padding: 0.6rem 1.5rem; text-decoration: none; color: #fff; display: inline-block; font-size: 0.85rem;">
+                    <i class="fab fa-github"></i> github.com/Yash-11k
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2 class="section-title gradient-text">⚡ Tech Stack</h2>
+            <div class="skills-grid">
+                <span class="skill-badge">Python</span><span class="skill-badge">SQL</span><span class="skill-badge">HTML</span><span class="skill-badge">CSS-TAILWIND</span><span class="skill-badge">Javascript(Basics)</span><span class="skill-badge">Verecel</span><span class="skill-badge">Render</span><span class="skill-badge">Hugging Face Space</span><span class="skill-badge">Pandas/NumPy</span>
+                <span class="skill-badge">Scikit-learn</span><span class="skill-badge">XGBoost</span><span class="skill-badge">Power BI</span>
+                <span class="skill-badge">Streamlit/Flask</span><span class="skill-badge">MySQL/Postgres</span><span class="skill-badge">Git/GitHub</span>
+                <span class="skill-badge">EDA</span><span class="skill-badge">Matplotlib/Seaborn</span><span class="skill-badge">FastAPI</span>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2 class="section-title gradient-text">📜 Certifications</h2>
+            <div class="badge-container">
+                <span class="cert-badge">🎓 NPTEL Python for DS - IIT Madras</span>
+                <span class="cert-badge">📊 McKinsey Forward Program 2026</span>
+                <span class="cert-badge">📈 Data Analytics - Deloitte (Forage)</span>
+                <span class="cert-badge">🌿 NSS Certficate of  Excellence - DCRUST</span>
+                <span class="cert-badge">🎤 IIC Regional Meet 2025 - AKTU</span>
+                <span class="cert-badge">💻 Code With Harry- Professional Data Science Certificate </span>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title gradient-text">📬 Connect</h2>
+            <div class="glass" style="padding: 1.5rem; text-align: center;">
+                <p><i class="fas fa-envelope"></i> <strong>yashkagra11@gmail.com</strong></p>
+                <p><i class="fas fa-phone"></i> +91 7988006881</p>
+                <p><i class="fas fa-map-marker"></i> Rohtak, Haryana,India</p>
+                <div style="display: flex; gap: 1.2rem; margin-top: 1rem; justify-content: center; font-size: 1.5rem;">
+                    <a href="https://github.com/Yash-11k" target="_blank" style="color: #fff;"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/yash-k-45536829a/" target="_blank" style="color: #fff;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/Yashk_11925/" target="_blank" style="color: #fff;"><i class="fab fa-leetcode"></i></a>
+                </div>
+                <a href="Yash_Resume_2026.pdf" download style="display: inline-block; margin-top: 1.2rem; padding: 0.6rem 1.5rem; background: linear-gradient(135deg, #00ffff, #ff00ff); border-radius: 50px; text-decoration: none; color: #000; font-weight: bold; font-size: 0.85rem;">📄 Download Resume</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Yash Kagra | Building my data journey, one project at a time. 🚀</p>
+</footer>
+
+<script>
+    // Typing Animation - Aspiring focused
+    const phrases = [
+        "Aspiring Data Scientist 📊",
+        "Machine Learning Enthusiast 🤖",
+        "Buisness Analyst 📈",
+        "Data Analyst 🗃️",
+        "Open Source Contributor 🐙",
+        "Learner and Seeker 🎓"
+    ];
+    let i = 0, j = 0, isDeleting = false;
+    function typeEffect() {
+        const current = phrases[i];
+        let displayText = current.substring(0, j);
+        document.getElementById('typing-text').innerHTML = displayText + '<span class="cursor">|</span>';
+        if (!isDeleting && j < current.length) j++;
+        else if (isDeleting && j > 0) j--;
+        else if (!isDeleting && j === current.length) isDeleting = true;
+        else if (isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % phrases.length;
+        }
+        setTimeout(typeEffect, isDeleting ? 80 : 120);
+    }
+    typeEffect();
+
+    // Realistic numbers for aspiring student
+    animateNumber(document.getElementById('stat1'), 45);
+    animateNumber(document.getElementById('stat2'), 100);
+    animateNumber(document.getElementById('stat3'), 6);
+    animateNumber(document.getElementById('stat4'), 10);
+
+    function animateNumber(element, target) {
+        let current = 0;
+        const increment = target / 40;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.innerText = target;
+                clearInterval(timer);
+            } else {
+                element.innerText = Math.floor(current);
+            }
+        }, 25);
+    }
+
+    // Theme Toggle
+    let isDark = true;
+    document.getElementById('themeToggle').addEventListener('click', () => {
+        if (isDark) {
+            document.body.style.background = '#ffffff';
+            document.body.style.color = '#000';
+            document.querySelectorAll('.glass, .github-section, .project-card, .stat-card, .cert-badge').forEach(el => {
+                el.style.background = 'rgba(0,0,0,0.04)';
+            });
+            isDark = false;
+        } else {
+            document.body.style.background = '#0a0a0a';
+            document.body.style.color = '#fff';
+            document.querySelectorAll('.glass, .project-card, .stat-card, .cert-badge').forEach(el => {
+                el.style.background = 'rgba(255,255,255,0.04)';
+            });
+            document.querySelectorAll('.github-section').forEach(el => {
+                el.style.background = 'rgba(0,0,0,0.3)';
+            });
+            isDark = true;
+        }
+    });
+
+    // Particles
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 50, density: { enable: true, value_area: 800 } },
+            color: { value: "#00ffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.3, random: true },
+            size: { value: 2, random: true },
+            line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.1, width: 1 },
+            move: { enable: true, speed: 1.2, direction: "none", random: true }
+        },
+        interactivity: {
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
+        }
+    });
+</script>
+</body>
+</html>
