@@ -999,5 +999,694 @@
         <span><span class="dot"></span>SYSTEM ONLINE · all services operational</span>
         <div class="statusbar-right">
             <span><i class="fa-solid fa-location-dot"></i>Delhi NCR</span>
-            <span><i class="fa-regular fa-clock"></i><span id="istClock">--:--</span> IST</clock></span>
-            <span><i class="fa-solid fa-code"></i>v1.0.0</span>                 
+            <span><i class="fa-regular fa-clock"></i><span id="istClock">--:--</span> IST</span>
+            <span id="uptimeDisplay"><i class="fa-solid fa-signal"></i>uptime 00:00:00</span>
+        </div>
+    </div>
+
+    <!-- ===== NAV ===== -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">yash<span class="caret">_</span><span style="color:var(--text-dimmer);font-weight:400;">@systems</span></div>
+            <div class="nav-links">
+                <a href="#stack">stack</a>
+                <a href="#experience">exp</a>
+                <a href="#projects">projects</a>
+                <a href="#certs">certs</a>
+                <a href="#contact">contact</a>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <a href="Yash_Resume_DS.pdf" download class="nav-cta mono">resume.pdf</a>
+                <div class="nav-profile">
+                    <img src="Yash_Black.jpg" alt="Yash " class="nav-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="nav-placeholder" style="display:none;">YK</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main class="container">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="home">
+            <div class="hero-left">
+                <div class="hero-eyebrow"><span class="dot"></span>OPEN TO INTERNSHIPS · RESPONDS IN &lt;24H</div>
+                <h1>Yash<br><span class="accent">builds systems<br>from raw data.</span></h1>
+                <div class="hero-role mono"><span id="roleTyped"></span><span class="cursor">▌</span></div>
+                <p class="hero-desc">
+                    B.Tech CSE undergrad at <strong>DCRUST, Murthal</strong>, shipping <span class="highlight">ML pipelines</span>,
+                    <span class="highlight">analytics dashboards</span>, and <span class="highlight">LLM agents</span> —
+                    from a self-healing text-to-SQL engine to a burnout predictor trained on a million rows.
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-terminal"></i> ./explore-projects</a>
+                    <a href="mailto:yashkagra11@gmail.com" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> get-in-touch</a>
+                    <a href="Yash_Resume_DS.pdf" download class="btn btn-resume"><i class="fa-solid fa-download"></i> resume.pdf</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card"><div class="stat-num" data-count="150">0</div><div class="stat-label">LeetCode+</div></div>
+                    <div class="stat-card"><div class="stat-num" data-count="10">0</div><div class="stat-label">PRs Merged</div></div>
+                    <div class="stat-card"><div class="stat-num" data-count="8">0</div><div class="stat-label">Projects</div></div>
+                    <div class="stat-card"><div class="stat-num" data-target-label="1M+">0</div><div class="stat-label">Rows Analyzed</div></div>
+                </div>
+            </div>
+
+            <!-- ===== TERMINAL ===== -->
+            <div class="term-window">
+                <div class="term-bar">
+                    <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+                    <span class="term-title">yash@dcrust — zsh</span>
+                </div>
+                <div class="term-body" id="termBody"></div>
+            </div>
+        </section>
+
+        <!-- ===== STACK ===== -->
+        <section id="stack">
+            <div class="sec-head"><span class="sec-index">01</span><span class="sec-line"></span><span class="sec-title">tech<span class="hl">.stack</span></span></div>
+            <p class="sec-sub">Python and SQL at the core — everything else plugs in around them.</p>
+            <div class="stack-grid">
+                <div class="tree-window">
+                    <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">~/stack — tree -L 2</span></div>
+                    <div class="tree-body">
+                        <span class="dir">languages/</span><br>
+                        ├── <span class="file">python</span> · <span class="file">sql</span> · <span class="file">javascript</span><br>
+                        <span class="dir">data/</span><br>
+                        ├── <span class="file">pandas</span> · <span class="file">numpy</span> · <span class="file">postgresql</span> · <span class="file">mysql</span><br>
+                        <span class="dir">machine_learning/</span><br>
+                        ├── <span class="file">scikit-learn</span> · <span class="file">xgboost</span> · <span class="file">random_forest</span><br>
+                        <span class="dir">analytics/</span><br>
+                        ├── <span class="file">power_bi</span> · <span class="file">dax</span> · <span class="file">excel</span><br>
+                        <span class="dir">genai/</span><br>
+                        ├── <span class="file">llm_apps</span> · <span class="file">langchain</span> · <span class="file">text-to-sql</span><br>
+                        <span class="dir">deployment/</span><br>
+                        └── <span class="file">fastapi</span> · <span class="file">streamlit</span> · <span class="file">docker</span> · <span class="file">aws</span>
+                    </div>
+                </div>
+                <div>
+                    <p class="mono" style="font-size:0.65rem;color:var(--text-dimmer);letter-spacing:0.05em;margin-bottom:0.8rem;">// tools in rotation</p>
+                    <div class="tool-cloud">
+                        <span class="tool-chip">Python</span><span class="tool-chip">SQL</span><span class="tool-chip">Pandas</span>
+                        <span class="tool-chip">NumPy</span><span class="tool-chip">Scikit-learn</span><span class="tool-chip">XGBoost</span>
+                        <span class="tool-chip">Power BI</span><span class="tool-chip">DAX</span><span class="tool-chip">Streamlit</span>
+                        <span class="tool-chip">FastAPI</span><span class="tool-chip">Docker</span><span class="tool-chip">MySQL</span>
+                        <span class="tool-chip">PostgreSQL</span><span class="tool-chip">Git/GitHub</span><span class="tool-chip">AWS</span>
+                        <span class="tool-chip">LangChain</span><span class="tool-chip">Matplotlib</span><span class="tool-chip">Seaborn</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience">
+            <div class="sec-head"><span class="sec-index">02</span><span class="sec-line"></span><span class="sec-title">deployment<span class="hl">.log</span></span></div>
+            <p class="sec-sub">A running log of internships and open-source work, most recent first.</p>
+            <div class="log-window">
+                <div class="log-entry">
+                    <div class="log-head">
+                        <span class="log-tag">INTERN</span>
+                        <span class="log-role">Data Analyst · ToLetGlobe</span>
+                        <span class="log-meta">Dec 2025 → Apr 2026 · Remote · Startup</span>
+                    </div>
+                    <ul>
+                        <li>Audited &amp; cleaned 100+ production rental records — cut data errors by 30%</li>
+                        <li>Built custom performance trackers for real-time visibility into daily leads</li>
+                        <li>Streamlined ops workflows for faster access to high-priority data</li>
+                    </ul>
+                </div>
+                <div class="log-entry">
+                    <div class="log-head">
+                        <span class="log-tag">INTERN</span>
+                        <span class="log-role">Data Analyst · Infotact Solutions</span>
+                        <span class="log-meta">Jun 2025 → Aug 2025 · Remote · Bengaluru</span>
+                    </div>
+                    <ul>
+                        <li>Analyzed 10,000+ rows with Python + SQL, surfacing 3+ revenue trends</li>
+                        <li>Optimized customer segmentation for sharper targeted marketing</li>
+                        <li>Engineered Power BI dashboards tracking 5+ KPIs in real time</li>
+                    </ul>
+                </div>
+                <div class="log-entry">
+                    <div class="log-head">
+                        <span class="log-tag oss">OSS</span>
+                        <span class="log-role">Open Source Contributor · GitHub Ecosystem</span>
+                        <span class="log-meta">Dec 2024 → present</span>
+                    </div>
+                    <ul>
+                        <li>Resolved 5+ real-world issues across public repositories</li>
+                        <li>Merged 10+ pull requests — scalable features, clean documentation</li>
+                        <li>Actively collaborating with global contributor teams</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects">
+            <div class="sec-head"><span class="sec-index">03</span><span class="sec-line"></span><span class="sec-title">deployed<span class="hl">.systems</span></span></div>
+            <p class="sec-sub">Eight end-to-end builds spanning predictive ML, BI dashboards, and LLM-driven agents.</p>
+            <div class="project-grid">
+
+                <!-- FEATURED: NeuralSQL Agent -->
+                <div class="pcard featured">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">neuralsql_agent.py</span>
+                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">🧠💬</div>
+                        <div class="pcard-title">NeuralSQL Agent · Text-to-SQL Engine</div>
+                        <p class="pcard-desc">
+                            Autonomous text-to-SQL engine on Groq (Llama-3.1) with sub-1.5s latency.
+                            A dual-agent <strong>Generator + Critic</strong> self-healing loop auto-corrects schema and syntax errors before execution.
+                            Deployed with Docker + Streamlit.
+                        </p>
+                        <div class="flow-row">
+                            <span>Natural Language</span>
+                            <span class="arrow">→</span>
+                            <span>LLM (Groq)</span>
+                            <span class="arrow">→</span>
+                            <span>SQL Generation</span>
+                            <span class="arrow">→</span>
+                            <span>Self-Healing</span>
+                            <span class="arrow">→</span>
+                            <span>Database</span>
+                            <span class="arrow">→</span>
+                            <span>Result</span>
+                        </div>
+                        <div class="pcard-metric">&gt; query success: 95%+</div>
+                        <div class="pcard-tech">
+                            <span>Groq API</span><span>FastAPI</span><span>Docker</span><span>SQLite</span><span>Streamlit</span>
+                        </div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/NeuralSQL-Agent" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                            <a href="https://neuralsql-agent-yash11k.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live app</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZenithMind AI -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">zenithmind.ipynb</span>
+                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">🧠🤖</div>
+                        <div class="pcard-title">ZenithMind AI · Burnout Predictor</div>
+                        <p class="pcard-desc">1M+ row dataset · 20+ features (CGPA, sleep, exam pressure, anxiety, screen time) · Random Forest &amp; XGBoost with 79% accuracy.</p>
+                        <div class="pcard-metric">&gt; accuracy: 79%</div>
+                        <div class="pcard-tech"><span>XGBoost</span><span>Random Forest</span><span>Streamlit</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/ZenithMind-AI" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                            <a href="https://zenithmind-ai-yash11k.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Route-Wise -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">route_wise.py</span>
+                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">🚕📊</div>
+                        <div class="pcard-title">Route-Wise · Uber Trip Forecaster</div>
+                        <p class="pcard-desc">Trip distance prediction with engineered temporal features across 100+ categorical dimensions, IQR capping, and 500+ cleaned missing values.</p>
+                        <div class="pcard-metric">&gt; accuracy: 82.1%</div>
+                        <div class="pcard-tech"><span>XGBoost</span><span>Pandas</span><span>Streamlit</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/Uber-Trip-Forecaster" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                            <a href="https://ubertripanalytics.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Payment Analytics -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">payments.pbix</span>
+                        <span class="pcard-status pub">PUBLISHED</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">💳📈</div>
+                        <div class="pcard-title">Digital Payment Analytics Dashboard</div>
+                        <p class="pcard-desc">650K+ transactions · $55M+ revenue · DAX measures, dynamic KPIs, slicers, drill-downs by profession, education, and card category.</p>
+                        <div class="pcard-metric">&gt; revenue surfaced: $55M+</div>
+                        <div class="pcard-tech"><span>Power BI</span><span>DAX</span><span>SQL</span><span>Excel</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/Digital-Payment-Analytics-Dashboard-Customer-Spending-Behaviour" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Insurance -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">insurance_api.py</span>
+                        <span class="pcard-status pub">PUBLISHED</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">🏥💰</div>
+                        <div class="pcard-title">Medical Insurance Cost Prediction</div>
+                        <p class="pcard-desc">Regression pipeline comparing Linear Regression, Random Forest, and XGBoost to predict insurance costs.</p>
+                        <div class="pcard-metric">&gt; R² score: 88%</div>
+                        <div class="pcard-tech"><span>Scikit-learn</span><span>XGBoost</span><span>Streamlit</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/Medical-Insurance-Cost-Prediction-ML-API" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zepto SQL -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">zepto_sales.sql</span>
+                        <span class="pcard-status pub">PUBLISHED</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">🛒📉</div>
+                        <div class="pcard-title">Zepto SQL Sales Analysis</div>
+                        <p class="pcard-desc">Deep-dive SQL analysis of quick-commerce sales using window functions and CTEs to surface customer segmentation and order trends.</p>
+                        <div class="pcard-tech"><span>MySQL</span><span>Window Functions</span><span>CTEs</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/Zepto_SQL_Analysis-" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diwali Sales -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">diwali_eda.ipynb</span>
+                        <span class="pcard-status pub">PUBLISHED</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">✨🛍️</div>
+                        <div class="pcard-title">Diwali Sales Analysis · EDA</div>
+                        <p class="pcard-desc">Full exploratory data analysis on 20,000+ festive-season transactions, identifying customer patterns across states and product categories.</p>
+                        <div class="pcard-tech"><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k/PYTHON-EDA-ANALYSIS-DIWALI-SALES-" target="_blank"><i class="fa-brands fa-github"></i> source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Segmentation -->
+                <div class="pcard">
+                    <div class="pcard-bar">
+                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
+                        <span class="pcard-fname">segmentation.py</span>
+                        <span class="pcard-status pub">IN REPO</span>
+                    </div>
+                    <div class="pcard-body">
+                        <div class="pcard-icon">📊🎯</div>
+                        <div class="pcard-title">Market Segmentation · Unsupervised ML</div>
+                        <p class="pcard-desc">Customer segmentation using K-Means with Elbow Method and Silhouette Analysis for optimal cluster identification.</p>
+                        <div class="pcard-tech"><span>K-Means</span><span>Scikit-learn</span><span>Seaborn</span></div>
+                        <div class="pcard-links">
+                            <a href="https://github.com/Yash-11k?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i> all repos</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CERTIFICATIONS ===== -->
+        <section id="certs">
+            <div class="sec-head"><span class="sec-index">04</span><span class="sec-line"></span><span class="sec-title">certification<span class="hl">.registry</span></span></div>
+            <div class="cert-table-wrap">
+                <table class="cert-table">
+                    <thead><tr><th>Credential</th><th>Issuer</th><th>Core Skills</th></tr></thead>
+                    <tbody>
+                        <tr><td>Python for Data Science</td><td>NPTEL · IIT Madras</td><td>Data Viz, Python, Data Lifecycle</td></tr>
+                        <tr><td>Data Science &amp; Analytics Professional</td><td>Code With Harry</td><td>End-to-end ML pipeline, SQL, Deployment</td></tr>
+                        <tr><td>Web Development</td><td>Code With Harry</td><td>HTML, CSS, JavaScript</td></tr>
+                        <tr><td>McKinsey Forward Program 2026</td><td>McKinsey &amp; Company</td><td>Business Decision-Making, Leadership</td></tr>
+                        <tr><td>Data Analytics Job Simulation</td><td>Deloitte (Forage)</td><td>Data Modeling, Strategic Insights</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== LEADERSHIP ===== -->
+        <section id="leadership">
+            <div class="sec-head"><span class="sec-index">05</span><span class="sec-line"></span><span class="sec-title">leadership<span class="hl">.log</span></span></div>
+            <div class="ach-window">
+                <span><span class="gt">&gt;</span> Core Team Member — Institute Innovation Council (IIC), DCRUST</span>
+                <span class="sub">organized technical events, fostered startup/innovation culture on campus</span><br>
+                <span><span class="gt">&gt;</span> Recipient — NSS Certificate of Excellence, DCRUST</span>
+                <span class="sub">awarded for leadership &amp; execution of community development programs</span><br>
+                <span><span class="gt">&gt;</span> Speaker — IIC Regional Meet 2025, AKTU</span><br>
+                <span><span class="gt">&gt;</span> 150+ SQL / DSA problems solved — joins, group by, subqueries, window functions</span>
+            </div>
+        </section>
+
+        <!-- ===== GITHUB ===== -->
+        <section id="github">
+            <div class="sec-head"><span class="sec-index">06</span><span class="sec-line"></span><span class="sec-title">git<span class="hl">.status</span></span></div>
+            <div class="github-card">
+                <i class="fa-brands fa-github" style="font-size:2.4rem;color:var(--violet-soft);"></i>
+                <div class="gh-stats">
+                    <div class="gh-stat"><div class="num">Weekends</div><small>COMMITS</small></div>
+                    <div class="gh-stat"><div class="num">10+</div><small>PRs MERGED</small></div>
+                    <div class="gh-stat"><div class="num">7+</div><small>ISSUES RESOLVED</small></div>
+                </div>
+                <a href="https://github.com/Yash-11k" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> github.com/Yash-11k</a>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact">
+            <div class="sec-head"><span class="sec-index">07</span><span class="sec-line"></span><span class="sec-title">network<span class="hl">.connect</span></span></div>
+            <div class="contact-wrap">
+                <div class="json-window">
+                    <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">contact.json</span></div>
+                    <div class="json-body">
+                        {<br>
+                        &nbsp;&nbsp;<span class="k">"name"</span>: <span class="s">"Yash"</span>,<br>
+                        &nbsp;&nbsp;<span class="k">"domain"</span>: [<span class="s">"data_science"</span>, <span class="s">"ml"</span>, <span class="s">"genai"</span>, <span class="s">"analytics"</span>],<br>
+                        &nbsp;&nbsp;<span class="k">"email"</span>: <span class="s">"yashkagra11@gmail.com"</span><button class="copy-btn" onclick="copyText('yashkagra11@gmail.com', this)">copy</button>,<br>
+                        &nbsp;&nbsp;<span class="k">"location"</span>: <span class="s">"Delhi NCR"</span>,<br>
+                        &nbsp;&nbsp;<span class="k">"availability"</span>: <span class="s">"Open_to_Internships, Full time Roles"</span>,<br>
+                        &nbsp;&nbsp;<span class="k">"response_time"</span>: <span class="s">"&lt;24h"</span><br>
+                        }
+                    </div>
+                </div>
+                <div class="contact-panel">
+                    <h3 class="mono">Let's build something useful with data.</h3>
+                    <p>Open to internships, collaborations, and interesting problems — reach out on whichever channel works for you.</p>
+                    <div class="social-row">
+                        <a href="mailto:yashkagra11@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://github.com/Yash-11k" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/yash-k-45536829a/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="mono">
+        <p>© 2026 Yash Kagra · built with <span class="hb">♥</span> and a lot of <code>git commit</code></p>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- ===== SCRIPTS ===== -->
+    <!-- ============================================================ -->
+    <script>
+        /* ============================================================
+           CLOCK + UPTIME
+           ============================================================ */
+        const bootTime = Date.now();
+
+        function pad(n) { return n.toString().padStart(2, '0'); }
+
+        function tickClock() {
+            const ist = new Date().toLocaleTimeString('en-US', { hour12: false, timeZone: 'Asia/Kolkata', hour: '2-digit',
+                minute: '2-digit' });
+            document.getElementById('istClock').textContent = ist;
+            const secs = Math.floor((Date.now() - bootTime) / 1000);
+            const h = Math.floor(secs / 3600),
+                m = Math.floor((secs % 3600) / 60),
+                s = secs % 60;
+            document.getElementById('uptimeDisplay').innerHTML = '<i class="fa-solid fa-signal"></i>uptime ' + pad(h) + ':' +
+                pad(m) + ':' + pad(s);
+        }
+        tickClock();
+        setInterval(tickClock, 1000);
+
+        /* ============================================================
+           ROLE TYPING
+           ============================================================ */
+        const roles = ["Data Scientist", "ML Engineer", "GenAI Builder", "BI Engineer", "Open Source Contributor"];
+        let rI = 0,
+            cI = 0,
+            deleting = false;
+        const roleEl = document.getElementById('roleTyped');
+
+        function typeRole() {
+            const word = roles[rI];
+            roleEl.textContent = word.substring(0, cI);
+            if (!deleting && cI < word.length) { cI++; } else if (deleting && cI > 0) { cI--; } else if (!deleting && cI ===
+                word.length) { deleting = true;
+                setTimeout(typeRole, 1200);
+                return; } else if (deleting && cI === 0) { deleting = false;
+                rI = (rI + 1) % roles.length; }
+            setTimeout(typeRole, deleting ? 35 : 65);
+        }
+        typeRole();
+
+        /* ============================================================
+           TERMINAL BOOT
+           ============================================================ */
+        const termBody = document.getElementById('termBody');
+        const bootLines = [
+            { type: 'cmd', text: 'whoami' },
+            { type: 'out', text: 'yash_kagra — cse undergrad @ dcrust' },
+            { type: 'cmd', text: 'profile --summary' },
+            { type: 'yaml', text: 'domain: <span class="s">"data_science × ml × genai × analytics"</span>' },
+            { type: 'yaml', text: 'education: <span class="s">"B.Tech CSE (2023–2027)"</span>' },
+            { type: 'yaml', text: 'focus: [<span class="s">predictive_models</span>, <span class="s">analytics</span>, <span class="s">ai_agents</span>]' },
+            { type: 'yaml', text: 'status: <span class="k">OPEN_TO_OPPORTUNITIES</span>' },
+            { type: 'cmd', text: 'system.ready' },
+        ];
+        let li = 0;
+
+        function renderNextLine() {
+            if (li >= bootLines.length) {
+                const p = document.createElement('div');
+                p.innerHTML = '<span class="ln-cmd" style="color:var(--green)">ready</span><span class="term-cursor"></span>';
+                p.style.marginTop = '0.4rem';
+                termBody.appendChild(p);
+                return;
+            }
+            const line = bootLines[li];
+            const row = document.createElement('div');
+            if (line.type === 'cmd') { row.className = 'ln-cmd';
+                row.textContent = line.text; } else if (line.type === 'out') { row.className = 'ln-out';
+                row.textContent = line.text; } else { row.className = 'ln-yaml';
+                row.innerHTML = line.text; }
+            termBody.appendChild(row);
+            li++;
+            setTimeout(renderNextLine, line.type === 'cmd' ? 350 : 220);
+        }
+        renderNextLine();
+
+        /* ============================================================
+           COUNTER ANIMATION
+           ============================================================ */
+        const counters = document.querySelectorAll('.stat-num[data-count]');
+        const labelCounters = document.querySelectorAll('.stat-num[data-target-label]');
+        labelCounters.forEach(el => { el.textContent = el.dataset.targetLabel; });
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count, 10);
+                    let cur = 0;
+                    const step = Math.max(1, target / 30);
+                    const t = setInterval(() => {
+                        cur += step;
+                        if (cur >= target) { el.textContent = target;
+                            clearInterval(t); } else { el.textContent = Math.floor(cur); }
+                    }, 25);
+                    io.unobserve(el);
+                }
+            });
+        }, { threshold: 0.4 });
+        counters.forEach(c => io.observe(c));
+
+        /* ============================================================
+           COPY EMAIL
+           ============================================================ */
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'copied ✓';
+                setTimeout(() => { btn.textContent = original; }, 1500);
+            });
+        }
+
+        /* ============================================================
+           SCROLL REVEAL
+           ============================================================ */
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.pcard, .log-entry, .stat-card, .cert-table-wrap, .ach-window, .github-card, .contact-wrap')
+            .forEach(el => {
+                el.classList.add('reveal');
+                revealObs.observe(el);
+            });
+
+        /* ============================================================
+           SMOOTH NAV
+           ============================================================ */
+        document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) { e.preventDefault();
+                    t.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+
+        /* ============================================================
+           EMAILJS — VISITOR EMAIL REPORTS (OPTION 1)
+           ============================================================ */
+        (function() {
+            // ⚠️ IMPORTANT: Replace these with YOUR EmailJS credentials
+            const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
+            const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
+            const EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
+            const YOUR_EMAIL = 'yashkagra11@gmail.com';
+
+            // -------- EMAILJS INIT --------
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+
+            // -------- HELPERS --------
+            function getDeviceName() {
+                const ua = navigator.userAgent;
+                if (ua.includes('Windows')) return 'Windows PC';
+                if (ua.includes('Mac')) return ua.includes('iPhone') ? 'iPhone' : ua.includes('iPad') ? 'iPad' : 'Mac';
+                if (ua.includes('Android')) return 'Android';
+                if (ua.includes('iPhone')) return 'iPhone';
+                if (ua.includes('iPad')) return 'iPad';
+                if (ua.includes('Linux')) return 'Linux';
+                return 'Unknown';
+            }
+
+            function getBrowser() {
+                const ua = navigator.userAgent;
+                if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
+                if (ua.includes('Firefox')) return 'Firefox';
+                if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+                if (ua.includes('Edg')) return 'Edge';
+                return 'Other';
+            }
+
+            function getOS() {
+                const ua = navigator.userAgent;
+                if (ua.includes('Windows')) return 'Windows';
+                if (ua.includes('Mac')) return 'macOS';
+                if (ua.includes('Linux')) return 'Linux';
+                if (ua.includes('Android')) return 'Android';
+                if (ua.includes('iOS') || ua.includes('iPhone') || ua.includes('iPad')) return 'iOS';
+                return 'Unknown';
+            }
+
+            function getFormattedTime() {
+                return new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
+            }
+
+            // -------- GET LOCATION --------
+            async function getLocation() {
+                try {
+                    const res = await fetch('https://ipapi.co/json/');
+                    if (!res.ok) throw new Error('IP API failed');
+                    const data = await res.json();
+                    return {
+                        full: `${data.city || 'Unknown'}, ${data.country_name || 'Unknown'}`,
+                        city: data.city || 'Unknown',
+                        country: data.country_name || 'Unknown',
+                        ip: data.ip || 'Unknown'
+                    };
+                } catch {
+                    return { full: 'Location unknown', city: 'Unknown', country: 'Unknown', ip: 'Unknown' };
+                }
+            }
+
+            // -------- SEND EMAIL --------
+            async function sendVisitorEmail(visitorData) {
+                const toast = document.getElementById('emailToast');
+                const toastMsg = document.getElementById('toastMessage');
+
+                try {
+                    toastMsg.innerHTML = '📧 Sending visitor report...';
+                    toast.classList.add('show');
+
+                    const templateParams = {
+                        to_email: YOUR_EMAIL,
+                        visitor_name: 'Anonymous Visitor',
+                        visitor_device: visitorData.device,
+                        visitor_browser: visitorData.browser,
+                        visitor_os: visitorData.os,
+                        visitor_location: visitorData.location,
+                        visitor_time: visitorData.time,
+                        visitor_ip: visitorData.ip || 'Unknown',
+                        page_url: window.location.href,
+                        message: `🔍 New visitor on your portfolio!
+
+        📱 Device: ${visitorData.device}
+        🌐 Browser: ${visitorData.browser}
+        💻 OS: ${visitorData.os}
+        📍 Location: ${visitorData.location}
+        🕐 Time: ${visitorData.time}
+        🔢 IP: ${visitorData.ip || 'Unknown'}
+        🔗 Page: ${window.location.href}
+
+        ---
+        This is an automated visitor alert from your portfolio.`
+                    };
+
+                    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+
+                    toastMsg.innerHTML = '✅ Visitor report sent to your email!';
+                    setTimeout(() => { toast.classList.remove('show'); }, 3000);
+                } catch (error) {
+                    console.error('Email send error:', error);
+                    toastMsg.innerHTML = '❌ Email send failed. Check EmailJS config.';
+                    setTimeout(() => { toast.classList.remove('show'); }, 4000);
+                }
+            }
+
+            // -------- TRACK VISITOR --------
+            const TRACK_KEY = 'yash_visitor_tracked';
+
+            async function trackVisitor() {
+                // Only track once per session
+                if (sessionStorage.getItem(TRACK_KEY)) return;
+                sessionStorage.setItem(TRACK_KEY, 'true');
+
+                const loc = await getLocation();
+                const visitorData = {
+                    device: getDeviceName(),
+                    browser: getBrowser(),
+                    os: getOS(),
+                    location: loc.full,
+                    city: loc.city,
+                    country: loc.country,
+                    ip: loc.ip,
+                    time: getFormattedTime(),
+                };
+
+                // Send email
+                sendVisitorEmail(visitorData);
+            }
+
+            // -------- INIT --------
+            document.addEventListener('DOMContentLoaded', function() {
+                // Small delay to ensure page loads first
+                setTimeout(trackVisitor, 1500);
+                console.log('📧 EmailJS Visitor Tracker Active — Reports will be sent to your email');
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
