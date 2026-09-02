@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
-        /* ============================= TOKENS ============================= */
+        /* ===== TOKENS ===== */
         :root {
             --bg: #090b12;
             --bg-soft: #0d101a;
@@ -46,14 +48,8 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            * {
-                animation-duration: 0.001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.001ms !important;
-            }
+            html { scroll-behavior: auto; }
+            * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
         }
 
         body {
@@ -97,44 +93,19 @@
             background-size: 256px 256px;
         }
 
-        ::selection {
-            background: var(--violet);
-            color: #fff;
-        }
+        ::selection { background: var(--violet); color: #fff; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-        }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .mono { font-family: var(--mono); }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .mono {
-            font-family: var(--mono);
-        }
-
-        /* ============================= STATUS BAR ============================= */
+        /* ===== STATUS BAR ===== */
         .statusbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1100;
             background: var(--bg);
             border-bottom: 1px solid var(--border);
@@ -149,8 +120,7 @@
         }
 
         .statusbar .dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--green);
             display: inline-block;
@@ -160,41 +130,22 @@
         }
 
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.3;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
-        .statusbar-right {
-            display: flex;
-            gap: 1.6rem;
-        }
-
-        .statusbar-right span i {
-            margin-right: 0.35rem;
-            opacity: 0.6;
-        }
+        .statusbar-right { display: flex; gap: 1.6rem; }
+        .statusbar-right span i { margin-right: 0.35rem; opacity: 0.6; }
 
         @media (max-width: 860px) {
-            .statusbar-right span:not(:last-child) {
-                display: none;
-            }
-            .statusbar {
-                padding: 0.3rem 1rem;
-                font-size: 0.6rem;
-            }
+            .statusbar-right span:not(:last-child) { display: none; }
+            .statusbar { padding: 0.3rem 1rem; font-size: 0.6rem; }
         }
 
-        /* ============================= NAV ============================= */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
-            top: 26px;
-            left: 0;
-            right: 0;
+            top: 26px; left: 0; right: 0;
             z-index: 1000;
             background: rgba(9, 11, 18, 0.82);
             backdrop-filter: blur(18px);
@@ -228,14 +179,8 @@
         }
 
         @keyframes blink {
-            0%,
-            49% {
-                opacity: 1;
-            }
-            50%,
-            100% {
-                opacity: 0;
-            }
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
         }
 
         .nav-links {
@@ -251,19 +196,11 @@
             position: relative;
         }
 
-        .nav-links a::before {
-            content: './';
-            color: var(--text-dimmer);
-        }
+        .nav-links a::before { content: './'; color: var(--text-dimmer); }
+        .nav-links a:hover { color: var(--amber); }
 
-        .nav-links a:hover {
-            color: var(--amber);
-        }
-
-        .nav-photo,
-        .nav-placeholder {
-            width: 36px;
-            height: 36px;
+        .nav-photo, .nav-placeholder {
+            width: 36px; height: 36px;
             border-radius: 8px;
             object-fit: cover;
             border: 1.5px solid var(--border-strong);
@@ -291,21 +228,14 @@
             transition: 0.2s;
         }
 
-        .nav-cta:hover {
-            background: var(--amber-dim);
-            transform: translateY(-1px);
-        }
+        .nav-cta:hover { background: var(--amber-dim); transform: translateY(-1px); }
 
         @media (max-width: 860px) {
-            .nav-links {
-                display: none;
-            }
-            nav {
-                top: 22px;
-            }
+            .nav-links { display: none; }
+            nav { top: 22px; }
         }
 
-        /* ============================= HERO ============================= */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -316,11 +246,7 @@
             flex-wrap: wrap;
         }
 
-        .hero-left {
-            flex: 1.1;
-            min-width: 320px;
-        }
-
+        .hero-left { flex: 1.1; min-width: 320px; }
         .hero-eyebrow {
             font-family: var(--mono);
             font-size: 0.7rem;
@@ -333,8 +259,7 @@
         }
 
         .hero-eyebrow .dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--green);
             box-shadow: 0 0 10px var(--green);
@@ -376,14 +301,8 @@
             margin-bottom: 1.8rem;
         }
 
-        .hero-desc strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .hero-desc .highlight {
-            color: var(--violet-soft);
-        }
+        .hero-desc strong { color: var(--text); font-weight: 600; }
+        .hero-desc .highlight { color: var(--violet-soft); }
 
         .hero-btns {
             display: flex;
@@ -454,9 +373,7 @@
             transition: 0.2s;
         }
 
-        .stat-card:hover {
-            border-color: var(--border-strong);
-        }
+        .stat-card:hover { border-color: var(--border-strong); }
 
         .stat-num {
             font-family: var(--mono);
@@ -473,6 +390,7 @@
             margin-top: 0.1rem;
         }
 
+        /* ===== TERMINAL ===== */
         .term-window {
             flex: 0.9;
             min-width: 300px;
@@ -493,20 +411,10 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .term-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-        .term-dot.r {
-            background: #ff5f57;
-        }
-        .term-dot.y {
-            background: #febc2e;
-        }
-        .term-dot.g {
-            background: #28c840;
-        }
+        .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .term-dot.r { background: #ff5f57; }
+        .term-dot.y { background: #febc2e; }
+        .term-dot.g { background: #28c840; }
 
         .term-title {
             font-family: var(--mono);
@@ -523,27 +431,13 @@
             min-height: 280px;
         }
 
-        .term-body .ln-cmd {
-            color: var(--violet-soft);
-        }
-        .term-body .ln-cmd::before {
-            content: '$ ';
-            color: var(--green);
-        }
-        .term-body .ln-out {
-            color: var(--text-dim);
-            padding-left: 0.1rem;
-        }
-        .term-body .k {
-            color: var(--amber);
-        }
-        .term-body .s {
-            color: #7dd3fc;
-        }
-        .term-body .ln-yaml {
-            padding-left: 1.2rem;
-            color: var(--text-dim);
-        }
+        .term-body .ln-cmd { color: var(--violet-soft); }
+        .term-body .ln-cmd::before { content: '$ '; color: var(--green); }
+        .term-body .ln-out { color: var(--text-dim); padding-left: 0.1rem; }
+        .term-body .k { color: var(--amber); }
+        .term-body .s { color: #7dd3fc; }
+        .term-body .ln-yaml { padding-left: 1.2rem; color: var(--text-dim); }
+
         .term-cursor {
             display: inline-block;
             width: 7px;
@@ -554,25 +448,13 @@
         }
 
         @media (max-width: 860px) {
-            .hero {
-                gap: 2.5rem;
-                padding-top: 100px;
-            }
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .term-window {
-                max-width: 100%;
-                width: 100%;
-            }
+            .hero { gap: 2.5rem; padding-top: 100px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .term-window { max-width: 100%; width: 100%; }
         }
 
-        /* ============================= SECTIONS ============================= */
-        section {
-            margin: 6rem 0;
-            scroll-margin-top: 100px;
-        }
-
+        /* ===== SECTIONS ===== */
+        section { margin: 6rem 0; scroll-margin-top: 100px; }
         .sec-head {
             display: flex;
             align-items: baseline;
@@ -594,10 +476,7 @@
             letter-spacing: -0.01em;
         }
 
-        .sec-title .hl {
-            color: var(--amber);
-        }
-
+        .sec-title .hl { color: var(--amber); }
         .sec-line {
             flex: 1;
             height: 1px;
@@ -611,18 +490,14 @@
             max-width: 600px;
         }
 
-        /* ============================= SKILLS / STACK ============================= */
+        /* ===== STACK ===== */
         .stack-grid {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
             gap: 1.5rem;
         }
 
-        @media (max-width: 860px) {
-            .stack-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 860px) { .stack-grid { grid-template-columns: 1fr; } }
 
         .tree-window {
             background: var(--surface);
@@ -640,15 +515,9 @@
             overflow-x: auto;
         }
 
-        .tree-body .dir {
-            color: var(--violet-soft);
-        }
-        .tree-body .file {
-            color: var(--text);
-        }
-        .tree-body .hl-amber {
-            color: var(--amber);
-        }
+        .tree-body .dir { color: var(--violet-soft); }
+        .tree-body .file { color: var(--text); }
+        .tree-body .hl-amber { color: var(--amber); }
 
         .tool-cloud {
             display: flex;
@@ -675,7 +544,7 @@
             transform: translateY(-1px);
         }
 
-        /* ============================= EXPERIENCE ============================= */
+        /* ===== EXPERIENCE ===== */
         .log-window {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -688,13 +557,8 @@
             border-bottom: 1px dashed var(--border);
         }
 
-        .log-entry:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .log-entry:first-child {
-            padding-top: 0;
-        }
+        .log-entry:last-child { border-bottom: none; padding-bottom: 0; }
+        .log-entry:first-child { padding-top: 0; }
 
         .log-head {
             display: flex;
@@ -714,20 +578,10 @@
             font-weight: 700;
         }
 
-        .log-tag.oss {
-            background: var(--violet-soft);
-        }
+        .log-tag.oss { background: var(--violet-soft); }
 
-        .log-role {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .log-meta {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            color: var(--text-dimmer);
-        }
+        .log-role { font-weight: 700; font-size: 1rem; }
+        .log-meta { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); }
 
         .log-entry ul {
             list-style: none;
@@ -751,11 +605,9 @@
             font-family: var(--mono);
         }
 
-        .log-entry li:last-child::before {
-            content: '└─';
-        }
+        .log-entry li:last-child::before { content: '└─'; }
 
-        /* ============================= PROJECTS ============================= */
+        /* ===== PROJECTS ===== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -785,16 +637,8 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .pcard-bar-left {
-            display: flex;
-            gap: 0.4rem;
-        }
-
-        .pcard-fname {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            color: var(--text-dimmer);
-        }
+        .pcard-bar-left { display: flex; gap: 0.4rem; }
+        .pcard-fname { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dimmer); }
 
         .pcard-status {
             font-family: var(--mono);
@@ -805,36 +649,20 @@
             font-weight: 700;
         }
 
-        .pcard-status.live {
-            color: var(--green);
-        }
+        .pcard-status.live { color: var(--green); }
         .pcard-status.live .dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--green);
             box-shadow: 0 0 8px var(--green);
             animation: pulse 2s infinite;
         }
 
-        .pcard-status.pub {
-            color: var(--violet-soft);
-        }
+        .pcard-status.pub { color: var(--violet-soft); }
 
-        .pcard-body {
-            padding: 1.3rem 1.5rem;
-        }
-
-        .pcard-icon {
-            font-size: 1.6rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .pcard-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 0.3rem;
-        }
+        .pcard-body { padding: 1.3rem 1.5rem; }
+        .pcard-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+        .pcard-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; }
 
         .pcard-desc {
             color: var(--text-dim);
@@ -884,26 +712,16 @@
             transition: 0.2s;
         }
 
-        .pcard-links a:hover {
-            color: var(--amber);
-        }
+        .pcard-links a:hover { color: var(--amber); }
 
-        .pcard.featured {
-            grid-column: span 2;
-        }
+        .pcard.featured { grid-column: span 2; }
 
         @media (max-width: 860px) {
-            .pcard.featured {
-                grid-column: span 1;
-            }
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
+            .pcard.featured { grid-column: span 1; }
+            .project-grid { grid-template-columns: 1fr; }
         }
 
-        .pcard.featured .pcard-body {
-            padding: 1.5rem 2rem;
-        }
+        .pcard.featured .pcard-body { padding: 1.5rem 2rem; }
 
         .pcard .flow-row {
             display: flex;
@@ -918,17 +736,10 @@
             border-radius: 6px;
         }
 
-        .pcard .flow-row span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
+        .pcard .flow-row span { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .pcard .flow-row .arrow { color: var(--violet-soft); }
 
-        .pcard .flow-row .arrow {
-            color: var(--violet-soft);
-        }
-
-        /* ============================= CERTIFICATIONS ============================= */
+        /* ===== CERTIFICATIONS ===== */
         .cert-table-wrap {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -965,12 +776,9 @@
             color: var(--text);
         }
 
-        .cert-table td:first-child {
-            color: var(--text);
-            font-weight: 600;
-        }
+        .cert-table td:first-child { color: var(--text); font-weight: 600; }
 
-        /* ============================= LEADERSHIP ============================= */
+        /* ===== LEADERSHIP ===== */
         .ach-window {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -981,10 +789,7 @@
             line-height: 2.1;
         }
 
-        .ach-window .gt {
-            color: var(--green);
-        }
-
+        .ach-window .gt { color: var(--green); }
         .ach-window .sub {
             color: var(--text-dimmer);
             display: block;
@@ -992,7 +797,7 @@
             font-size: 0.8rem;
         }
 
-        /* ============================= GITHUB ============================= */
+        /* ===== GITHUB ===== */
         .github-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -1030,7 +835,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* ============================= CONTACT ============================= */
+        /* ===== CONTACT ===== */
         .contact-wrap {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1038,11 +843,7 @@
             align-items: stretch;
         }
 
-        @media (max-width: 860px) {
-            .contact-wrap {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 860px) { .contact-wrap { grid-template-columns: 1fr; } }
 
         .json-window {
             background: var(--surface);
@@ -1058,15 +859,9 @@
             line-height: 1.9;
         }
 
-        .json-body .k {
-            color: var(--violet-soft);
-        }
-        .json-body .s {
-            color: #7dd3fc;
-        }
-        .json-body .p {
-            color: var(--text-dimmer);
-        }
+        .json-body .k { color: var(--violet-soft); }
+        .json-body .s { color: #7dd3fc; }
+        .json-body .p { color: var(--text-dimmer); }
 
         .copy-btn {
             background: none;
@@ -1081,10 +876,7 @@
             transition: 0.2s;
         }
 
-        .copy-btn:hover {
-            color: var(--amber);
-            border-color: var(--amber);
-        }
+        .copy-btn:hover { color: var(--amber); border-color: var(--amber); }
 
         .contact-panel {
             background: var(--surface);
@@ -1115,8 +907,7 @@
         }
 
         .social-row a {
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border: 1px solid var(--border);
             border-radius: 9px;
             display: flex;
@@ -1133,7 +924,7 @@
             transform: translateY(-3px);
         }
 
-        /* ============================= FOOTER ============================= */
+        /* ===== FOOTER ===== */
         footer {
             border-top: 1px solid var(--border);
             padding: 2rem 0;
@@ -1143,29 +934,15 @@
             color: var(--text-dimmer);
         }
 
-        footer .hb {
-            color: var(--red);
-        }
+        footer .hb { color: var(--red); }
 
         @media (max-width: 600px) {
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            section {
-                margin: 3.5rem 0;
-            }
-            .container {
-                padding: 0 1.2rem;
-            }
-            .log-window {
-                padding: 1.2rem;
-            }
-            .sec-head {
-                flex-wrap: wrap;
-            }
-            .sec-line {
-                display: none;
-            }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            section { margin: 3.5rem 0; }
+            .container { padding: 0 1.2rem; }
+            .log-window { padding: 1.2rem; }
+            .sec-head { flex-wrap: wrap; }
+            .sec-line { display: none; }
         }
 
         .reveal {
@@ -1174,1055 +951,52 @@
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ============================================================
-           VISITOR TRACKER DASHBOARD STYLES
-           ============================================================ */
-        .secret-dash-trigger {
+        /* ===== EMAIL STATUS TOAST ===== */
+        .email-toast {
             position: fixed;
-            bottom: 14px;
-            right: 14px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--violet);
-            opacity: 0.12;
-            z-index: 9999;
-            cursor: pointer;
-            transition: 0.3s;
-            border: none;
-        }
-
-        .secret-dash-trigger:hover {
-            opacity: 0.4;
-            transform: scale(1.2);
-        }
-
-        .dash-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.82);
-            backdrop-filter: blur(14px);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            animation: dashFade 0.25s ease;
-        }
-
-        .dash-overlay.active {
-            display: flex;
-        }
-
-        @keyframes dashFade {
-            from {
-                opacity: 0;
-                transform: scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .dash-card {
+            bottom: 30px;
+            right: 30px;
             background: var(--surface);
             border: 1px solid var(--border-strong);
             border-radius: var(--radius);
-            padding: 1.8rem;
-            max-width: 820px;
-            width: 100%;
-            max-height: 82vh;
-            overflow-y: auto;
+            padding: 0.8rem 1.2rem;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            z-index: 9998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            max-width: 300px;
             box-shadow: var(--shadow);
         }
 
-        .dash-card h2 {
-            font-family: var(--mono);
-            font-size: 1.3rem;
-            margin-bottom: 0.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .email-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
 
-        .dash-card .close-btn {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            padding: 0.2rem 0.7rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            transition: 0.2s;
-        }
-
-        .dash-card .close-btn:hover {
-            border-color: var(--red);
-            color: var(--red);
-        }
-
-        .dash-card .sub {
-            color: var(--text-dimmer);
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .dash-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-
-        .dash-stat-box {
-            background: var(--bg-soft);
-            border-radius: 8px;
-            padding: 0.7rem;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .dash-stat-box .num {
-            font-family: var(--mono);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--violet-soft);
-        }
-
-        .dash-stat-box .label {
-            font-size: 0.55rem;
-            color: var(--text-dimmer);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .dash-table-wrap {
-            overflow-x: auto;
-            margin-top: 0.8rem;
-        }
-
-        .dash-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.7rem;
-        }
-
-        .dash-table th {
-            font-family: var(--mono);
-            text-align: left;
-            color: var(--text-dimmer);
-            padding: 0.4rem 0.4rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.55rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .dash-table td {
-            padding: 0.4rem 0.4rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-dim);
-            font-size: 0.68rem;
-        }
-
-        .dash-table tr:hover td {
-            background: rgba(124, 92, 255, 0.04);
-        }
-
-        .dash-table .hl {
-            color: var(--violet-soft);
-            font-weight: 600;
-        }
-
-        .dash-table .empty {
-            color: var(--text-dimmer);
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.8rem;
-        }
-
-        .dash-actions {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .dash-actions button {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            padding: 0.35rem 0.9rem;
-            border-radius: 5px;
-            border: 1px solid var(--border);
-            background: var(--bg-soft);
-            color: var(--text-dim);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .dash-actions button:hover {
-            border-color: var(--violet-soft);
-            color: var(--text);
-        }
-
-        .dash-actions .danger:hover {
-            border-color: var(--red);
-            color: var(--red);
-        }
-
-        .dash-actions .export:hover {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .dash-card::-webkit-scrollbar {
-            width: 4px;
-        }
-        .dash-card::-webkit-scrollbar-thumb {
-            background: var(--violet);
-            border-radius: 10px;
-        }
-
-        @media (max-width: 700px) {
-            .dash-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .dash-card {
-                padding: 1rem;
-            }
-            .dash-table {
-                font-size: 0.6rem;
-            }
-        }
+        .email-toast .success { color: var(--green); }
+        .email-toast .error { color: var(--red); }
     </style>
 </head>
 <body>
 
-    <!-- NOISE OVERLAY -->
+    <!-- ===== NOISE ===== -->
     <div class="noise"></div>
 
-    <!-- ============================= SECRET DASHBOARD TRIGGER ============================= -->
-    <button class="secret-dash-trigger" id="dashTrigger" aria-label="Dashboard"></button>
-
-    <!-- ============================= DASHBOARD OVERLAY ============================= -->
-    <div class="dash-overlay" id="dashOverlay">
-        <div class="dash-card">
-            <h2>
-                📊 Visitor Intelligence
-                <button class="close-btn" id="dashClose">✕</button>
-            </h2>
-            <p class="sub">Silent tracking — visitors never know. <span style="color:var(--violet-soft);">Double-click the purple dot</span> to reopen.</p>
-
-            <div class="dash-stats" id="dashStats">
-                <div class="dash-stat-box"><div class="num" id="dashTotal">0</div><div class="label">Total</div></div>
-                <div class="dash-stat-box"><div class="num" id="dashToday">0</div><div class="label">Today</div></div>
-                <div class="dash-stat-box"><div class="num" id="dashUnique">0</div><div class="label">Unique</div></div>
-                <div class="dash-stat-box"><div class="num" id="dashAvgTime">0s</div><div class="label">Avg Session</div></div>
-            </div>
-
-            <div class="dash-table-wrap">
-                <table class="dash-table">
-                    <thead>
-                        <tr>
-                            <th>Device</th>
-                            <th>Browser</th>
-                            <th>Location</th>
-                            <th>Time</th>
-                            <th>Duration</th>
-                            <th>Views</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dashTableBody">
-                        <tr><td colspan="6" class="empty">No visitors yet. Share your portfolio!</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="dash-actions">
-                <button class="export" id="dashExport"><i class="fa-solid fa-download"></i> Export CSV</button>
-                <button class="danger" id="dashClear"><i class="fa-solid fa-trash"></i> Clear</button>
-            </div>
-        </div>
+    <!-- ===== EMAIL TOAST ===== -->
+    <div class="email-toast" id="emailToast">
+        <div id="toastMessage">📧 Sending visitor report...</div>
     </div>
 
-    <!-- ============================= STATUS BAR ============================= -->
+    <!-- ===== STATUS BAR ===== -->
     <div class="statusbar mono">
         <span><span class="dot"></span>SYSTEM ONLINE · all services operational</span>
         <div class="statusbar-right">
             <span><i class="fa-solid fa-location-dot"></i>Delhi NCR</span>
-            <span><i class="fa-regular fa-clock"></i><span id="istClock">--:--</span> IST</span>
-            <span id="uptimeDisplay"><i class="fa-solid fa-signal"></i>uptime 00:00:00</span>
-        </div>
-    </div>
-
-    <!-- ============================= NAV ============================= -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">yash<span class="caret">_</span><span style="color:var(--text-dimmer);font-weight:400;">@systems</span></div>
-            <div class="nav-links">
-                <a href="#stack">stack</a>
-                <a href="#experience">exp</a>
-                <a href="#projects">projects</a>
-                <a href="#certs">certs</a>
-                <a href="#contact">contact</a>
-            </div>
-            <div style="display:flex;align-items:center;gap:0.8rem;">
-                <a href="Yash_Resume_DS.pdf" download class="nav-cta mono">resume.pdf</a>
-                <div class="nav-profile">
-                    <img src="Yash_Black.jpg" alt="Yash " class="nav-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="nav-placeholder" style="display:none;">YK</div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ============================= MAIN ============================= -->
-    <main class="container">
-
-        <!-- ========== HERO ========== -->
-        <section class="hero" id="home">
-            <div class="hero-left">
-                <div class="hero-eyebrow"><span class="dot"></span>OPEN TO INTERNSHIPS · RESPONDS IN &lt;24H</div>
-                <h1>Yash<br><span class="accent">builds systems<br>from raw data.</span></h1>
-                <div class="hero-role mono"><span id="roleTyped"></span><span class="cursor">▌</span></div>
-                <p class="hero-desc">
-                    B.Tech CSE undergrad at <strong>DCRUST, Murthal</strong>, shipping <span class="highlight">ML pipelines</span>,
-                    <span class="highlight">analytics dashboards</span>, and <span class="highlight">LLM agents</span> —
-                    from a self-healing text-to-SQL engine to a burnout predictor trained on a million rows.
-                </p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-terminal"></i> ./explore-projects</a>
-                    <a href="mailto:yashkagra11@gmail.com" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> get-in-touch</a>
-                    <a href="Yash_Resume_DS.pdf" download class="btn btn-resume"><i class="fa-solid fa-download"></i> resume.pdf</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-card"><div class="stat-num" data-count="150">0</div><div class="stat-label">LeetCode+</div></div>
-                    <div class="stat-card"><div class="stat-num" data-count="10">0</div><div class="stat-label">PRs Merged</div></div>
-                    <div class="stat-card"><div class="stat-num" data-count="8">0</div><div class="stat-label">Projects</div></div>
-                    <div class="stat-card"><div class="stat-num" data-target-label="1M+">0</div><div class="stat-label">Rows Analyzed</div></div>
-                </div>
-            </div>
-
-            <!-- TERMINAL WINDOW -->
-            <div class="term-window">
-                <div class="term-bar">
-                    <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
-                    <span class="term-title">yash@dcrust — zsh</span>
-                </div>
-                <div class="term-body" id="termBody"></div>
-            </div>
-        </section>
-
-        <!-- ========== STACK ========== -->
-        <section id="stack">
-            <div class="sec-head"><span class="sec-index">01</span><span class="sec-line"></span><span class="sec-title">tech<span class="hl">.stack</span></span></div>
-            <p class="sec-sub">Python and SQL at the core — everything else plugs in around them.</p>
-
-            <div class="stack-grid">
-                <div class="tree-window">
-                    <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">~/stack — tree -L 2</span></div>
-                    <div class="tree-body">
-                        <span class="dir">languages/</span><br>
-                        ├── <span class="file">python</span> · <span class="file">sql</span> · <span class="file">javascript</span><br>
-                        <span class="dir">data/</span><br>
-                        ├── <span class="file">pandas</span> · <span class="file">numpy</span> · <span class="file">postgresql</span> · <span class="file">mysql</span><br>
-                        <span class="dir">machine_learning/</span><br>
-                        ├── <span class="file">scikit-learn</span> · <span class="file">xgboost</span> · <span class="file">random_forest</span><br>
-                        <span class="dir">analytics/</span><br>
-                        ├── <span class="file">power_bi</span> · <span class="file">dax</span> · <span class="file">excel</span><br>
-                        <span class="dir">genai/</span><br>
-                        ├── <span class="file">llm_apps</span> · <span class="file">langchain</span> · <span class="file">text-to-sql</span><br>
-                        <span class="dir">deployment/</span><br>
-                        └── <span class="file">fastapi</span> · <span class="file">streamlit</span> · <span class="file">docker</span> · <span class="file">aws</span>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="mono" style="font-size:0.65rem;color:var(--text-dimmer);letter-spacing:0.05em;margin-bottom:0.8rem;">// tools in rotation</p>
-                    <div class="tool-cloud">
-                        <span class="tool-chip">Python</span><span class="tool-chip">SQL</span><span class="tool-chip">Pandas</span>
-                        <span class="tool-chip">NumPy</span><span class="tool-chip">Scikit-learn</span><span class="tool-chip">XGBoost</span>
-                        <span class="tool-chip">Power BI</span><span class="tool-chip">DAX</span><span class="tool-chip">Streamlit</span>
-                        <span class="tool-chip">FastAPI</span><span class="tool-chip">Docker</span><span class="tool-chip">MySQL</span>
-                        <span class="tool-chip">PostgreSQL</span><span class="tool-chip">Git/GitHub</span><span class="tool-chip">AWS</span>
-                        <span class="tool-chip">LangChain</span><span class="tool-chip">Matplotlib</span><span class="tool-chip">Seaborn</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== EXPERIENCE ========== -->
-        <section id="experience">
-            <div class="sec-head"><span class="sec-index">02</span><span class="sec-line"></span><span class="sec-title">deployment<span class="hl">.log</span></span></div>
-            <p class="sec-sub">A running log of internships and open-source work, most recent first.</p>
-
-            <div class="log-window">
-                <div class="log-entry">
-                    <div class="log-head">
-                        <span class="log-tag">INTERN</span>
-                        <span class="log-role">Data Analyst · ToLetGlobe</span>
-                        <span class="log-meta">Dec 2025 → Apr 2026 · Remote · Startup</span>
-                    </div>
-                    <ul>
-                        <li>Audited &amp; cleaned 100+ production rental records — cut data errors by 30%</li>
-                        <li>Built custom performance trackers for real-time visibility into daily leads</li>
-                        <li>Streamlined ops workflows for faster access to high-priority data</li>
-                    </ul>
-                </div>
-                <div class="log-entry">
-                    <div class="log-head">
-                        <span class="log-tag">INTERN</span>
-                        <span class="log-role">Data Analyst · Infotact Solutions</span>
-                        <span class="log-meta">Jun 2025 → Aug 2025 · Remote · Bengaluru</span>
-                    </div>
-                    <ul>
-                        <li>Analyzed 10,000+ rows with Python + SQL, surfacing 3+ revenue trends</li>
-                        <li>Optimized customer segmentation for sharper targeted marketing</li>
-                        <li>Engineered Power BI dashboards tracking 5+ KPIs in real time</li>
-                    </ul>
-                </div>
-                <div class="log-entry">
-                    <div class="log-head">
-                        <span class="log-tag oss">OSS</span>
-                        <span class="log-role">Open Source Contributor · GitHub Ecosystem</span>
-                        <span class="log-meta">Dec 2024 → present</span>
-                    </div>
-                    <ul>
-                        <li>Resolved 5+ real-world issues across public repositories</li>
-                        <li>Merged 10+ pull requests — scalable features, clean documentation</li>
-                        <li>Actively collaborating with global contributor teams</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PROJECTS ========== -->
-        <section id="projects">
-            <div class="sec-head"><span class="sec-index">03</span><span class="sec-line"></span><span class="sec-title">deployed<span class="hl">.systems</span></span></div>
-            <p class="sec-sub">Eight end-to-end builds spanning predictive ML, BI dashboards, and LLM-driven agents.</p>
-
-            <div class="project-grid">
-
-                <!-- FEATURED: NeuralSQL Agent -->
-                <div class="pcard featured">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">neuralsql_agent.py</span>
-                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">🧠💬</div>
-                        <div class="pcard-title">NeuralSQL Agent · Text-to-SQL Engine</div>
-                        <p class="pcard-desc">
-                            Autonomous text-to-SQL engine on Groq (Llama-3.1) with sub-1.5s latency.
-                            A dual-agent <strong>Generator + Critic</strong> self-healing loop auto-corrects schema and syntax errors before execution.
-                            Deployed with Docker + Streamlit.
-                        </p>
-                        <div class="flow-row">
-                            <span>Natural Language</span>
-                            <span class="arrow">→</span>
-                            <span>LLM (Groq)</span>
-                            <span class="arrow">→</span>
-                            <span>SQL Generation</span>
-                            <span class="arrow">→</span>
-                            <span>Self-Healing</span>
-                            <span class="arrow">→</span>
-                            <span>Database</span>
-                            <span class="arrow">→</span>
-                            <span>Result</span>
-                        </div>
-                        <div class="pcard-metric">&gt; query success: 95%+</div>
-                        <div class="pcard-tech">
-                            <span>Groq API</span><span>FastAPI</span><span>Docker</span><span>SQLite</span><span>Streamlit</span>
-                        </div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/NeuralSQL-Agent" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                            <a href="https://neuralsql-agent-yash11k.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live app</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ZenithMind AI -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">zenithmind.ipynb</span>
-                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">🧠🤖</div>
-                        <div class="pcard-title">ZenithMind AI · Burnout Predictor</div>
-                        <p class="pcard-desc">1M+ row dataset · 20+ features (CGPA, sleep, exam pressure, anxiety, screen time) · Random Forest &amp; XGBoost with 79% accuracy.</p>
-                        <div class="pcard-metric">&gt; accuracy: 79%</div>
-                        <div class="pcard-tech"><span>XGBoost</span><span>Random Forest</span><span>Streamlit</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/ZenithMind-AI" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                            <a href="https://zenithmind-ai-yash11k.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Route-Wise -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">route_wise.py</span>
-                        <span class="pcard-status live"><span class="dot"></span>LIVE</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">🚕📊</div>
-                        <div class="pcard-title">Route-Wise · Uber Trip Forecaster</div>
-                        <p class="pcard-desc">Trip distance prediction with engineered temporal features across 100+ categorical dimensions, IQR capping, and 500+ cleaned missing values.</p>
-                        <div class="pcard-metric">&gt; accuracy: 82.1%</div>
-                        <div class="pcard-tech"><span>XGBoost</span><span>Pandas</span><span>Streamlit</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/Uber-Trip-Forecaster" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                            <a href="https://ubertripanalytics.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> live</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Digital Payment Analytics -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">payments.pbix</span>
-                        <span class="pcard-status pub">PUBLISHED</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">💳📈</div>
-                        <div class="pcard-title">Digital Payment Analytics Dashboard</div>
-                        <p class="pcard-desc">650K+ transactions · $55M+ revenue · DAX measures, dynamic KPIs, slicers, drill-downs by profession, education, and card category.</p>
-                        <div class="pcard-metric">&gt; revenue surfaced: $55M+</div>
-                        <div class="pcard-tech"><span>Power BI</span><span>DAX</span><span>SQL</span><span>Excel</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/Digital-Payment-Analytics-Dashboard-Customer-Spending-Behaviour" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Medical Insurance -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">insurance_api.py</span>
-                        <span class="pcard-status pub">PUBLISHED</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">🏥💰</div>
-                        <div class="pcard-title">Medical Insurance Cost Prediction</div>
-                        <p class="pcard-desc">Regression pipeline comparing Linear Regression, Random Forest, and XGBoost to predict insurance costs.</p>
-                        <div class="pcard-metric">&gt; R² score: 88%</div>
-                        <div class="pcard-tech"><span>Scikit-learn</span><span>XGBoost</span><span>Streamlit</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/Medical-Insurance-Cost-Prediction-ML-API" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Zepto SQL -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">zepto_sales.sql</span>
-                        <span class="pcard-status pub">PUBLISHED</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">🛒📉</div>
-                        <div class="pcard-title">Zepto SQL Sales Analysis</div>
-                        <p class="pcard-desc">Deep-dive SQL analysis of quick-commerce sales using window functions and CTEs to surface customer segmentation and order trends.</p>
-                        <div class="pcard-tech"><span>MySQL</span><span>Window Functions</span><span>CTEs</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/Zepto_SQL_Analysis-" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Diwali Sales -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">diwali_eda.ipynb</span>
-                        <span class="pcard-status pub">PUBLISHED</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">✨🛍️</div>
-                        <div class="pcard-title">Diwali Sales Analysis · EDA</div>
-                        <p class="pcard-desc">Full exploratory data analysis on 20,000+ festive-season transactions, identifying customer patterns across states and product categories.</p>
-                        <div class="pcard-tech"><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k/PYTHON-EDA-ANALYSIS-DIWALI-SALES-" target="_blank"><i class="fa-brands fa-github"></i> source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Market Segmentation -->
-                <div class="pcard">
-                    <div class="pcard-bar">
-                        <div class="pcard-bar-left"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span></div>
-                        <span class="pcard-fname">segmentation.py</span>
-                        <span class="pcard-status pub">IN REPO</span>
-                    </div>
-                    <div class="pcard-body">
-                        <div class="pcard-icon">📊🎯</div>
-                        <div class="pcard-title">Market Segmentation · Unsupervised ML</div>
-                        <p class="pcard-desc">Customer segmentation using K-Means with Elbow Method and Silhouette Analysis for optimal cluster identification.</p>
-                        <div class="pcard-tech"><span>K-Means</span><span>Scikit-learn</span><span>Seaborn</span></div>
-                        <div class="pcard-links">
-                            <a href="https://github.com/Yash-11k?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i> all repos</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ========== CERTIFICATIONS ========== -->
-        <section id="certs">
-            <div class="sec-head"><span class="sec-index">04</span><span class="sec-line"></span><span class="sec-title">certification<span class="hl">.registry</span></span></div>
-            <div class="cert-table-wrap">
-                <table class="cert-table">
-                    <thead><tr><th>Credential</th><th>Issuer</th><th>Core Skills</th></tr></thead>
-                    <tbody>
-                        <tr><td>Python for Data Science</td><td>NPTEL · IIT Madras</td><td>Data Viz, Python, Data Lifecycle</td></tr>
-                        <tr><td>Data Science &amp; Analytics Professional</td><td>Code With Harry</td><td>End-to-end ML pipeline, SQL, Deployment</td></tr>
-                        <tr><td>Web Development</td><td>Code With Harry</td><td>HTML, CSS, JavaScript</td></tr>
-                        <tr><td>McKinsey Forward Program 2026</td><td>McKinsey &amp; Company</td><td>Business Decision-Making, Leadership</td></tr>
-                        <tr><td>Data Analytics Job Simulation</td><td>Deloitte (Forage)</td><td>Data Modeling, Strategic Insights</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ========== LEADERSHIP ========== -->
-        <section id="leadership">
-            <div class="sec-head"><span class="sec-index">05</span><span class="sec-line"></span><span class="sec-title">leadership<span class="hl">.log</span></span></div>
-            <div class="ach-window">
-                <span><span class="gt">&gt;</span> Core Team Member — Institute Innovation Council (IIC), DCRUST</span>
-                <span class="sub">organized technical events, fostered startup/innovation culture on campus</span><br>
-                <span><span class="gt">&gt;</span> Recipient — NSS Certificate of Excellence, DCRUST</span>
-                <span class="sub">awarded for leadership &amp; execution of community development programs</span><br>
-                <span><span class="gt">&gt;</span> Speaker — IIC Regional Meet 2025, AKTU</span><br>
-                <span><span class="gt">&gt;</span> 150+ SQL / DSA problems solved — joins, group by, subqueries, window functions</span>
-            </div>
-        </section>
-
-        <!-- ========== GITHUB ========== -->
-        <section id="github">
-            <div class="sec-head"><span class="sec-index">06</span><span class="sec-line"></span><span class="sec-title">git<span class="hl">.status</span></span></div>
-            <div class="github-card">
-                <i class="fa-brands fa-github" style="font-size:2.4rem;color:var(--violet-soft);"></i>
-                <div class="gh-stats">
-                    <div class="gh-stat"><div class="num">Weekends</div><small>COMMITS</small></div>
-                    <div class="gh-stat"><div class="num">10+</div><small>PRs MERGED</small></div>
-                    <div class="gh-stat"><div class="num">7+</div><small>ISSUES RESOLVED</small></div>
-                </div>
-                <a href="https://github.com/Yash-11k" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> github.com/Yash-11k</a>
-            </div>
-        </section>
-
-        <!-- ========== CONTACT ========== -->
-        <section id="contact">
-            <div class="sec-head"><span class="sec-index">07</span><span class="sec-line"></span><span class="sec-title">network<span class="hl">.connect</span></span></div>
-            <div class="contact-wrap">
-                <div class="json-window">
-                    <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">contact.json</span></div>
-                    <div class="json-body">
-                        {<br>
-                        &nbsp;&nbsp;<span class="k">"name"</span>: <span class="s">"Yash"</span>,<br>
-                        &nbsp;&nbsp;<span class="k">"domain"</span>: [<span class="s">"data_science"</span>, <span class="s">"ml"</span>, <span class="s">"genai"</span>, <span class="s">"analytics"</span>],<br>
-                        &nbsp;&nbsp;<span class="k">"email"</span>: <span class="s">"yashkagra11@gmail.com"</span><button class="copy-btn" onclick="copyText('yashkagra11@gmail.com', this)">copy</button>,<br>
-                        &nbsp;&nbsp;<span class="k">"location"</span>: <span class="s">"Delhi NCR"</span>,<br>
-                        &nbsp;&nbsp;<span class="k">"availability"</span>: <span class="s">"Open_to_Internships, Full time Roles"</span>,<br>
-                        &nbsp;&nbsp;<span class="k">"response_time"</span>: <span class="s">"&lt;24h"</span><br>
-                        }
-                    </div>
-                </div>
-                <div class="contact-panel">
-                    <h3 class="mono">Let's build something useful with data.</h3>
-                    <p>Open to internships, collaborations, and interesting problems — reach out on whichever channel works for you.</p>
-                    <div class="social-row">
-                        <a href="mailto:yashkagra11@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
-                        <a href="https://github.com/Yash-11k" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/yash-k-45536829a/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ============================= FOOTER ============================= -->
-    <footer class="mono">
-        <p>© 2026 Yash Kagra · built with <span class="hb">♥</span> and a lot of <code>git commit</code></p>
-    </footer>
-
-    <!-- ============================= SCRIPTS ============================= -->
-    <script>
-        /* ---------- IST CLOCK + UPTIME ---------- */
-        const bootTime = Date.now();
-
-        function pad(n) { return n.toString().padStart(2, '0'); }
-
-        function tickClock() {
-            const ist = new Date().toLocaleTimeString('en-US', { hour12: false, timeZone: 'Asia/Kolkata', hour: '2-digit',
-                minute: '2-digit' });
-            document.getElementById('istClock').textContent = ist;
-            const secs = Math.floor((Date.now() - bootTime) / 1000);
-            const h = Math.floor(secs / 3600),
-                m = Math.floor((secs % 3600) / 60),
-                s = secs % 60;
-            document.getElementById('uptimeDisplay').innerHTML = '<i class="fa-solid fa-signal"></i>uptime ' + pad(h) + ':' +
-                pad(m) + ':' + pad(s);
-        }
-        tickClock();
-        setInterval(tickClock, 1000);
-
-        /* ---------- ROLE TYPING ---------- */
-        const roles = ["Data Scientist", "ML Engineer", "GenAI Builder", "BI Engineer", "Open Source Contributor"];
-        let rI = 0,
-            cI = 0,
-            deleting = false;
-        const roleEl = document.getElementById('roleTyped');
-
-        function typeRole() {
-            const word = roles[rI];
-            roleEl.textContent = word.substring(0, cI);
-            if (!deleting && cI < word.length) { cI++; } else if (deleting && cI > 0) { cI--; } else if (!deleting && cI ===
-                word.length) { deleting = true;
-                setTimeout(typeRole, 1200);
-                return; } else if (deleting && cI === 0) { deleting = false;
-                rI = (rI + 1) % roles.length; }
-            setTimeout(typeRole, deleting ? 35 : 65);
-        }
-        typeRole();
-
-        /* ---------- TERMINAL BOOT ---------- */
-        const termBody = document.getElementById('termBody');
-        const bootLines = [
-            { type: 'cmd', text: 'whoami' },
-            { type: 'out', text: 'yash_kagra — cse undergrad @ dcrust' },
-            { type: 'cmd', text: 'profile --summary' },
-            { type: 'yaml', text: 'domain: <span class="s">"data_science × ml × genai × analytics"</span>' },
-            { type: 'yaml', text: 'education: <span class="s">"B.Tech CSE (2023–2027)"</span>' },
-            { type: 'yaml', text: 'focus: [<span class="s">predictive_models</span>, <span class="s">analytics</span>, <span class="s">ai_agents</span>]' },
-            { type: 'yaml', text: 'status: <span class="k">OPEN_TO_OPPORTUNITIES</span>' },
-            { type: 'cmd', text: 'system.ready' },
-        ];
-        let li = 0;
-
-        function renderNextLine() {
-            if (li >= bootLines.length) {
-                const p = document.createElement('div');
-                p.innerHTML = '<span class="ln-cmd" style="color:var(--green)">ready</span><span class="term-cursor"></span>';
-                p.style.marginTop = '0.4rem';
-                termBody.appendChild(p);
-                return;
-            }
-            const line = bootLines[li];
-            const row = document.createElement('div');
-            if (line.type === 'cmd') { row.className = 'ln-cmd';
-                row.textContent = line.text; } else if (line.type === 'out') { row.className = 'ln-out';
-                row.textContent = line.text; } else { row.className = 'ln-yaml';
-                row.innerHTML = line.text; }
-            termBody.appendChild(row);
-            li++;
-            setTimeout(renderNextLine, line.type === 'cmd' ? 350 : 220);
-        }
-        renderNextLine();
-
-        /* ---------- COUNTER ANIMATION ---------- */
-        const counters = document.querySelectorAll('.stat-num[data-count]');
-        const labelCounters = document.querySelectorAll('.stat-num[data-target-label]');
-        labelCounters.forEach(el => { el.textContent = el.dataset.targetLabel; });
-
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.dataset.count, 10);
-                    let cur = 0;
-                    const step = Math.max(1, target / 30);
-                    const t = setInterval(() => {
-                        cur += step;
-                        if (cur >= target) { el.textContent = target;
-                            clearInterval(t); } else { el.textContent = Math.floor(cur); }
-                    }, 25);
-                    io.unobserve(el);
-                }
-            });
-        }, { threshold: 0.4 });
-        counters.forEach(c => io.observe(c));
-
-        /* ---------- COPY EMAIL ---------- */
-        function copyText(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-                const original = btn.textContent;
-                btn.textContent = 'copied ✓';
-                setTimeout(() => { btn.textContent = original; }, 1500);
-            });
-        }
-
-        /* ---------- SCROLL REVEAL ---------- */
-        const revealEls = document.querySelectorAll('.reveal');
-        const revealObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.pcard, .log-entry, .stat-card, .cert-table-wrap, .ach-window, .github-card, .contact-wrap')
-            .forEach(el => {
-                el.classList.add('reveal');
-                revealObs.observe(el);
-            });
-
-        /* ---------- SMOOTH NAV ---------- */
-        document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                const t = document.querySelector(this.getAttribute('href'));
-                if (t) { e.preventDefault();
-                    t.scrollIntoView({ behavior: 'smooth' }); }
-            });
-        });
-
-        /* ============================================================
-           SILENT VISITOR TRACKER + DASHBOARD
-           ============================================================ */
-        (function() {
-            const STORAGE_KEY = 'yash_silent_visitors';
-
-            // -------- HELPERS --------
-            function getTimestamp() { return new Date().toISOString(); }
-
-            function getFormattedTime() {
-                return new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true });
-            }
-
-            function getDeviceName() {
-                const ua = navigator.userAgent;
-                if (ua.includes('Windows')) return 'Windows PC';
-                if (ua.includes('Mac')) return ua.includes('iPhone') ? 'iPhone' : ua.includes('iPad') ? 'iPad' :
-                    'Mac';
-                if (ua.includes('Android')) return 'Android';
-                if (ua.includes('iPhone')) return 'iPhone';
-                if (ua.includes('iPad')) return 'iPad';
-                if (ua.includes('Linux')) return 'Linux';
-                return 'Unknown';
-            }
-
-            function getBrowser() {
-                const ua = navigator.userAgent;
-                if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
-                if (ua.includes('Firefox')) return 'Firefox';
-                if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
-                if (ua.includes('Edg')) return 'Edge';
-                return 'Other';
-            }
-
-            function getOS() {
-                const ua = navigator.userAgent;
-                if (ua.includes('Windows')) return 'Windows';
-                if (ua.includes('Mac')) return 'macOS';
-                if (ua.includes('Linux')) return 'Linux';
-                if (ua.includes('Android')) return 'Android';
-                if (ua.includes('iOS') || ua.includes('iPhone') || ua.includes('iPad')) return 'iOS';
-                return 'Unknown';
-            }
-
-            function getPagePath() { return window.location.pathname || '/'; }
-
-            // -------- GET LOCATION --------
-            async function getLocation() {
-                try {
-                    const res = await fetch('https://ipapi.co/json/');
-                    if (!res.ok) throw new Error('IP API failed');
-                    const data = await res.json();
-                    return {
-                        full: `${data.city || 'Unknown'}, ${data.country_name || 'Unknown'}`,
-                        city: data.city || 'Unknown',
-                        country: data.country_name || 'Unknown',
-                        ip: data.ip || 'Unknown'
-                    };
-                } catch {
-                    return { full: 'Location unknown', city: 'Unknown', country: 'Unknown', ip: 'Unknown' };
-                }
-            }
-
-            // -------- STORAGE --------
-            function getVisitors() {
-                try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; }
-            }
-
-            function saveVisitors(v) { localStorage.setItem(STORAGE_KEY, JSON.stringify(v)); }
-
-            function getTodayVisitors() {
-                const v = getVisitors();
-                const today = new Date().toISOString().split('T')[0];
-                return v.filter(x => x.date && x.date.startsWith(today));
-            }
-
-            // -------- TRACK --------
-            async function trackVisitor() {
-                const visitors = getVisitors();
-                const loc = await getLocation();
-                const now = Date.now();
-                const last = visitors.length > 0 ? visitors[visitors.length - 1] : null;
-                const isDuplicate = last && (now - new Date(last.timestamp).getTime()) < 300000;
-
-                if (isDuplicate) {
-                    last.pageViews = (last.pageViews || 1) + 1;
-                    last.lastActivity = getFormattedTime();
-                    last.duration = Math.floor((now - last.sessionStart) / 1000);
-                    saveVisitors(visitors);
-                    return;
-                }
-
-                const entry = {
-                    id: Date.now().toString(36) + Math.random().toString(36).substr(2, 4),
-                    device: getDeviceName(),
-                    browser: getBrowser(),
-                    os: getOS(),
-                    location: loc.full,
-                    city: loc.city,
-                    country: loc.country,
-                    ip: loc.ip,
-                    date: getTimestamp(),
-                    time: getFormattedTime(),
-                    timestamp: now,
-                    sessionStart: now,
-                    page: getPagePath(),
-                    pageViews: 1,
-                    duration: 0,
-                    lastActivity: getFormattedTime()
-                };
-                visitors.push(entry);
-                saveVisitors(visitors);
-            }
-
-            function updateSessionDuration() {
-                const visitors = getVisitors();
-                if (visitors.length === 0) return;
-                const last = visitors[visitors.length - 1];
-                const now = Date.now();
-                last.duration = Math.floor((now - last.sessionStart) / 1000);
-                last.lastActivity = getFormattedTime();
-                saveVisitors(visitors);
-            }
-
-            // -------- DASHBOARD --------
-            function renderDashboard() {
-                const visitors = getVisitors();
-                const today = getTodayVisitors();
-
-                document.getElementById('dashTotal').textContent = visitors.length;
-                document.getElementById('dashToday').textContent = today.length;
-
-                const unique = new Set(visitors.map(v => `${v.device}-${v.browser}`));
-                document.getElementById('dashUnique').textContent = unique.size;
-
-                const totalDur = visitors.reduce((s, v) => s + (v.duration || 0), 0);
-                const avg = visitors.length > 0 ? Math.floor(totalDur / visitors.length) : 0;
-                document.getElementById('dashAvgTime').textContent = avg < 60 ? `${avg}s` :
-                    `${Math.floor(avg/60)}m ${avg%60}s`;
-
-                const tbody = document.getElementById('dashTableBody');
-                if (visitors.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="6" class="empty">No visitors yet. Share your portfolio!</td></tr>';
-                    return;
-                }
-
-                const sorted = [...visitors].reverse().slice(0, 50);
-                tbody.innerHTML = sorted.map(v => `
-                            <tr>
-                                <td><span class="hl">${v.device || 'Unknown'}</span><br><span style="font-size:0.55rem;color:var(--text-dimmer);">${v.os || ''}</span></td>
-                                <td>${v.browser || 'Unknown'}</td>
-                                <td>${v.location || 'Unknown'}</td>
-                                <td style="font-size:0.65rem;">${v.time || '--:--'}</td>
-                                <td style="font-size:0.65rem;">${v.duration ? (v.duration < 60 ? `${v.duration}s` : `${Math.floor(v.duration/60)}m ${v.duration%60}s`) : '--'}</td>
-                                <td style="font-size:0.65rem;">${v.pageViews || 1}</td>
-                            </tr>
-                        `).join('');
-            }
-
-            function exportCSV() {
-                const visitors = getVisitors();
-                if (visitors.length === 0) return;
-                const headers = ['Device', 'Browser', 'OS', 'Location', 'Time', 'Duration (s)', 'Page Views'];
-                let csv = headers.join(',') + '\n';
-                visitors.forEach(v => {
-                    csv += [v.device || '', v.browser || '', v.os || '', v.location || '', v.time || '',
-                        v.duration || 0, v.pageViews || 1
-                    ].map(c => `"${String(c).replace(/"/g, '""')}"`).join(',') + '\n';
-                });
-                const blob = new Blob([csv], { type: 'text/csv' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `visitor_log_${new Date().toISOString().split('T')[0]}.csv`;
-                a.click();
-                URL.revokeObjectURL(url);
-            }
-
-            function clearData() {
-                if (confirm('Delete all visitor data?')) {
-                    localStorage.removeItem(STORAGE_KEY);
-                    renderDashboard();
-                }
-            }
-
-            // -------- TOGGLE --------
-            let clickCount = 0;
-            let clickTimer = null;
-
-            document.getElementById('dashTrigger').addEventListener('click', function() {
-                clickCount++;
-                if (clickCount === 1) {
-                    clickTimer = setTimeout(() => { clickCount = 0; }, 400);
-                } else if (clickCount >= 2) {
-                    clearTimeout(clickTimer);
-                    clickCount = 0;
-                    const overlay = document.getElementById('dashOverlay');
-                    overlay.classList.toggle('active');
-                    if (overlay.classList.contains('active')) renderDashboard();
-                }
-            });
-
-            document.getElementById('dashClose').addEventListener('click', function() {
-                document.getElementById('dashOverlay').classList.remove('active');
-            });
-
-            document.getElementById('dashOverlay').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('active');
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    document.getElementById('dashOverlay').classList.remove('active');
-                }
-            });
-
-            document.getElementById('dashExport').addEventListener('click', exportCSV);
-            document.getElementById('dashClear').addEventListener('click', clearData);
-
-            // -------- INIT --------
-            document.addEventListener('DOMContentLoaded', function() {
-                trackVisitor();
-                window.addEventListener('beforeunload', updateSessionDuration);
-                window.addEventListener('visibilitychange', function() {
-                    if (document.hidden) updateSessionDuration();
-                });
-                console.log('🔍 Silent Visitor Tracker Active');
-                console.log('📊 Double-click the purple dot at bottom-right to open dashboard');
-            });
-        })();
-    </script>
-
-</body>
-</html>
+            <span><i class="fa-regular fa-clock"></i><span id="istClock">--:--</span> IST</cl
